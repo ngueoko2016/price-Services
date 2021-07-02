@@ -4,7 +4,9 @@ package rules;
 import conditions.AbstractCondition;
 import domain.Order;
 import domain.enums.ProductType;
-
+/**
+ * Is our product of a certain type?
+ */
 public class ProductTypeRule extends AbstractCondition<Order> {
     private ProductType productType;
 

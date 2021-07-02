@@ -2,7 +2,9 @@ package rules;
 
 import conditions.AbstractCondition;
 import domain.Order;
-
+/**
+ * Is the price of our purchase above a certain amount?
+*/
 public class OrderMinimalPriceRule extends AbstractCondition<Order> {
     private double minPrice;
 

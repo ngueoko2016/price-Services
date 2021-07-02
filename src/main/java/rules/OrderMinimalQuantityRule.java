@@ -2,7 +2,9 @@ package rules;
 
 import conditions.AbstractCondition;
 import domain.Order;
-
+/**
+ *  Is the quantity of our purchase greater than a certain quantity ?
+*/
 public class OrderMinimalQuantityRule extends AbstractCondition<Order> {
     private  int minQuantity;
 
