@@ -7,6 +7,10 @@ public class Product {
     private ProductType productType;
     private double price;
 
+    public Product(double price) {
+        this.price = price;
+    }
+
     public Product() {
     }
 
