@@ -6,6 +6,10 @@ import domain.enums.ProductType;
 public class Product {
     private ProductType productType;
     private double price;
+
+    public Product() {
+    }
+
     public Product(ProductType productType, double price) {
         this.productType=productType;
         this.price = price;

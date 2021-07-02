@@ -16,6 +16,7 @@ public class RewardQuantityForQuantityAction implements Action<Order> {
 
     @Override
     public void execute(Order candidte) {
-
+        int totalRewardingQuantity=(candidte.getTotalQuantity()/magicQuantity)*rewardingQuantity;
+        candidte.setRewardingQuantity(candidte.getRewardingQuantity()+totalRewardingQuantity);
     }
 }
