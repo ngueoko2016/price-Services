@@ -23,7 +23,7 @@ public class PriceRulesContext {
          Map<Condition<Order>, Action<Order>> specificationSetMap = new HashMap<Condition<Order>, Action<Order>>();
         // Config A. Buy two TYPE_ONE product, get one free reward
         AbstractCondition<Order> buyTwoGetOneFreeCondition = new AndCondition<Order>(new ProductTypeRule(ProductType.TYPE_ONE),new OrderMinimalQuantityRule(2));
-        Action<Order> addRewardQuantityForMinQuantityAction = new RewardQuantityForQuantityAction(1,1);
+        Action<Order> addRewardQuantityForMinQuantityAction = new RewardQuantityForQuantityAction(1,2);
         specificationSetMap.put(buyTwoGetOneFreeCondition, addRewardQuantityForMinQuantityAction);
 
         // Config B. Buy three TYPE_TWO product at $1 dollar

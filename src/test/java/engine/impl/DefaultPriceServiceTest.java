@@ -64,10 +64,10 @@ public class DefaultPriceServiceTest {
 
     @Test
     public void shouldRewardOneAndApplyFixed2DollarsDiscount() {
-        Product product = new Product(ProductType.TYPE_ONE,5);
+        Product product = new Product(5);
         Order order= new Order(product,2);
         priceService.calculate(order);
         Assert.assertThat(order.getTatalPrice(), is(8.0));
-        Assert.assertThat(order.getTotalQuantity(), is(4));
+        Assert.assertThat(order.getTotalQuantity(), is(2));
     }
 }
