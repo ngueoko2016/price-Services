@@ -14,6 +14,8 @@ public class ApplySpecialPriceForQuantityAction implements Action<Order> {
 
     @Override
     public void execute(Order candidte) {
-        candidte.setTatalPrice(1.00);
+        int quantity= candidte.getTotalQuantity();
+        double totalPrice= specialPrice*(quantity/this.magicQuantity)+(quantity%this.magicQuantity)*candidte.getProduct().getPrice();
+        candidte.setTatalPrice(totalPrice);
     }
 }
