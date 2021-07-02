@@ -2,7 +2,9 @@ package actions.reward;
 
 import actions.Action;
 import domain.Order;
-
+/**
+ * Sel a specific quantity at the specific price. Ex. One cost $1.4, but Three cost $1
+ * */
 public class ApplySpecialPriceForQuantityAction implements Action<Order> {
     private  double specialPrice;
     private int magicQuantity;
