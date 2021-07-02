@@ -35,3 +35,5 @@ Config C
   - TotalPrice greater than $10
  2. Actions
   - Apply $2 fixed discount
+  
+The design is based on the design pattern Specification  
