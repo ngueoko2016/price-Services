@@ -2,9 +2,10 @@ package conditions;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class OrCondition<T> extends AbstractCondition<T> {
-    private Set<Condition<T>> conditions =new HashSet<Condition<T>>();
+    private Set<Condition<T>> conditions = new HashSet<>();
     public <T> OrCondition(Condition<T>...spc ) {
         super();
         for (Condition s:spc) {
@@ -14,11 +15,8 @@ public class OrCondition<T> extends AbstractCondition<T> {
 
     @Override
     public boolean isSatisfiedBy(T candidate) {
-        for (Condition<T> s: conditions){
-             if(s.isSatisfiedBy(candidate))
-                 return true;
-        }
-        return false;
+        Predicate<Condition<T>> conditionPredicate = s -> s.isSatisfiedBy(candidate);
+        return conditions.stream().anyMatch(conditionPredicate);
     }
     @Override
     public AbstractCondition<T> or(Condition<T> s) {

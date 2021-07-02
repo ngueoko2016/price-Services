@@ -2,24 +2,22 @@ package conditions;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class AndCondition<T> extends AbstractCondition<T> {
-    private Set<Condition<T>> conditions = new HashSet<Condition<T>>();
+    private Set<Condition<T>> conditions = new HashSet<>();
 
     public <T> AndCondition(Condition<T>...spc ) {
         super();
-        for (Condition s:spc) {
+        for(Condition s:spc) {
             conditions.add(s);
         }
     }
 
     @Override
     public boolean isSatisfiedBy(T candidate) {
-        for (Condition<T> s: conditions){
-            if(!s.isSatisfiedBy(candidate))
-                return false;
-        }
-        return true;
+        Predicate<Condition<T>> conditionPredicate = s -> s.isSatisfiedBy(candidate);
+        return conditions.stream().allMatch(conditionPredicate);
     }
 
     @Override
